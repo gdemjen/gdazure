@@ -1,0 +1,2 @@
+# gdazure
+store azure settings
