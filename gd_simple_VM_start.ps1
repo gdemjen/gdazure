@@ -30,7 +30,10 @@ catch {
         throw $_.Exception
     }
 }
-<#
+Write-Output "TenantId: " $servicePrincipalConnection.TenantId
+Write-Output "Application Id: " $servicePrincipalConnection.ApplicationId
+
+
 #Get all ARM resources from all resource groups
 $ResourceGroups = Get-AzureRmResourceGroup 
 
@@ -44,4 +47,3 @@ foreach ($ResourceGroup in $ResourceGroups)
     }
     Write-Output ("")
 } 
-#>
