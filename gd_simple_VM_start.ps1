@@ -33,10 +33,19 @@ catch {
 Write-Output "TenantId: " $servicePrincipalConnection.TenantId
 Write-Output "Application Id: " $servicePrincipalConnection.ApplicationId
 
+Select-AzureSubscription -Default "e44a16f2-bbb5-46b8-83a5-c8151022e318"
 
 #Get all ARM resources from all resource groups
 $ResourceGroups = Get-AzureRmResourceGroup 
 
+#Write-Output "Available resource groups: " $ResourceGroups
+
+Write-Output "First resource group : " $ResourceGroups[0]
+$MyResGroup = $ResourceGroups[0]
+$MyVM_1 = Get-AzureVM -Name "gdtc" -ServiceName "gdtc"
+
+Write-Output "My VM is : " $MyVM_1
+<#
 foreach ($ResourceGroup in $ResourceGroups)
 {    
     Write-Output ("Showing resources in resource group " + $ResourceGroup.ResourceGroupName)
@@ -47,3 +56,4 @@ foreach ($ResourceGroup in $ResourceGroups)
     }
     Write-Output ("")
 } 
+#>
